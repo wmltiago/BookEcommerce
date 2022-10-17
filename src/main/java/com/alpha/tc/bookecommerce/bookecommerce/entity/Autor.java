@@ -1,42 +1,64 @@
 package com.alpha.tc.bookecommerce.bookecommerce.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Autor {
-	private int idAutor;	
-	private String nomeAutor;	
-	private boolean ativoAutor;
 	
-	public int getIdAutor() {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer idAutor;	
+	
+	private String nomeAutor;
+	
+	private String statusAutor;
+
+	public Integer getIdAutor() {
 		return idAutor;
 	}
-	public void setIdAutor(int idAutor) {
+
+	public void setIdAutor(Integer idAutor) {
 		this.idAutor = idAutor;
 	}
-	public String getnomeAutor() {
+
+	public String getNomeAutor() {
 		return nomeAutor;
 	}
-	public void setnomeAutor(String nomeAutor) {
+
+	public void setNomeAutor(String nomeAutor) {
 		this.nomeAutor = nomeAutor;
 	}
-	public boolean isAtivoAutor() {
-		return ativoAutor;
+
+	public String getStatusAutor() {
+		return statusAutor;
 	}
-	public void setAtivoAutor(boolean ativoAutor) {
-		this.ativoAutor = ativoAutor;
+
+	public void setStatusAutor(String statusAutor) {
+		this.statusAutor = statusAutor;
 	}
-	
-	
+
 	@Override
 	public String toString() {
-		return "Autor [idAutor=" + idAutor + ", nomeAutor=" + nomeAutor + ", ativoAutor=" + ativoAutor + "]";
+		return "Autor [idAutor=" + idAutor + ", nomeAutor=" + nomeAutor + ", statusAutor=" + statusAutor + "]";
 	}
-	
-	
-	public Autor(int idAutor, String nomeAutor, boolean ativoAutor) {
+
+	public Autor(Integer idAutor, String nomeAutor, String statusAutor) {
 		super();
 		this.idAutor = idAutor;
 		this.nomeAutor = nomeAutor;
-		this.ativoAutor = ativoAutor;
-	}	
+		this.statusAutor = statusAutor;
+	}
+	
+	public Autor() {
+		
+	}
+	
+	
+		
+	
 	
 
 }

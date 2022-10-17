@@ -18,61 +18,6 @@ import com.alpha.tc.bookecommerce.bookecommerce.repository.CategoriaRepository;
 @Controller
 public class CategoriaController {
 	
-	@Autowired
-	CategoriaRepository autorRepository;
-	
-	
-	@GetMapping("admin/formularioCadastroAutor")
-	public String formularioAutor(Autor Autor) {
-		return "formularioCadastroAutor";
-	}
 
-	@GetMapping("/listaAutores")
-	public ModelAndView listaAutors(Autor Autor) {
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("listaAutors2");
-		modelAndView.addObject("listaAutors2", autorRepository.findAll());
-		return modelAndView;
-	}
-
-	@PostMapping
-	public String cadastroAutor(@Valid Autor Autor, BindingResult result,
-			RedirectAttributes redirectAttributes) {
-		if (result.hasErrors()) {
-			
-			return home(Autor); //adicionar a pagina de retorno em caso de erro.
-		}
-		redirectAttributes.addFlashAttribute("mensagem", "Usuário cadastrado com sucesso!!");
-		System.out.println(Autor);
-		autorRepository.save(Autor);
-		return "redirect:/formulario";
-
-	}
-
-	@GetMapping("/excluirAutor/{id1}")
-	public ModelAndView excluirAutor(@PathVariable("id1") Integer id444) {
-		ModelAndView modelAndView = new ModelAndView("redirect:/listaAutors2");
-		Autor Autor = autorRepository.findById(id444).get();
-		autorRepository.delete(Autor);
-		return modelAndView;
-	}
-
-	@GetMapping("/editarAutor/{id1}")
-	public ModelAndView editarAutor(@PathVariable("id1") Integer id444, Autor Autor) {
-		ModelAndView modelAndView = new ModelAndView("editarAutor2");
-		Autor Autor1 = autorRepository.getById(id444);
-		modelAndView.addObject("AutorNova", Autor1);
-		return modelAndView;
-	}
-
-	@PostMapping("/editarAutor")
-	public ModelAndView editarAutorPost(Autor Autor) {
-		ModelAndView modelAndView = new ModelAndView("redirect:/listaAutors2");
-		Autor Autor1 = autorRepository.getById(Autor.getIdAutor());
-		Autor1.setnomeAutor(Autor.getnomeAutor());
-		Autor1.setAtivoAutor(Autor.isAtivoAutor());		
-		autorRepository.save(Autor1);
-		return modelAndView;
-	}
 
 }

@@ -1,6 +1,15 @@
 package com.alpha.tc.bookecommerce.bookecommerce.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Editora {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer idEditora;
 	private String nomeEditora;
 	private String descricaoEditora;
