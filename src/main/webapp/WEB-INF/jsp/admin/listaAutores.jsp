@@ -32,7 +32,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#!">Start Bootstrap</a>
+                <a class="navbar-brand" href="#!">Book Ecommerce</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
@@ -48,13 +48,13 @@
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                    </form>
+<%--                     <form class="d-flex"> --%>
+<!--                         <button class="btn btn-outline-dark" type="submit"> -->
+<!--                             <i class="bi-cart-fill me-1"></i> -->
+<!--                             Cart -->
+<%--                             <span class="badge bg-dark text-white ms-1 rounded-pill">0</span> --%>
+<!--                         </button> -->
+<%--                     </form> --%>
                 </div>
             </div>
         </nav>
@@ -81,7 +81,7 @@
                     
                     
                         <div class="text-center p-2 col-md-12 text-white bg-primary border-top">
-                            <p>[includes-short]</p>
+                            
                         </div>
                     
                     
@@ -124,7 +124,8 @@
 	                            <p>${at.statusAutor}</p>
 	                        </div>
 	                        <div class="py-2 odd col-3 text-center">
-	                            <p>DEL | EDIT</p>
+	                        <p><a href="${s:mvcUrl('AC#editarAutor').arg(0, at.idAutor).build()}"><i class="bi bi-pencil-fill"></i></a>
+	                             | DEL</p>
 	                        </div>
 						</c:forEach>
                             <!-- <div class="text-center border py-4 col-md text-secondary">
@@ -133,7 +134,7 @@
                        
                 </div>
             </br>
-                     <p class="text-center"> <a href="">Ir para listagem de Autores</a> </p> 
+                     <p class="text-center"> <a href="http://localhost:8080/admin/cadastroAutor">Ir para cadastro de Autor</a> </p> 
                     </div> 
                     <!--container end.//-->
                 </br></br>

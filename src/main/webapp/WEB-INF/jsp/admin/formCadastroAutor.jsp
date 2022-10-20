@@ -48,7 +48,7 @@
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container px-4 px-lg-5">
-			<a class="navbar-brand" href="#!">Start Bootstrap</a>
+			<a class="navbar-brand" href="#!">Bok Ecommerce</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -70,12 +70,12 @@
 							<li><a class="dropdown-item" href="#!">New Arrivals</a></li>
 						</ul></li>
 				</ul>
-				<form class="d-flex">
-					<button class="btn btn-outline-dark" type="submit">
-						<i class="bi-cart-fill me-1"></i> Cart <span
-							class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-					</button>
-				</form>
+<%-- 				<form class="d-flex"> --%>
+<!-- 					<button class="btn btn-outline-dark" type="submit"> -->
+<%-- 						<i class="bi-cart-fill me-1"></i> Cart <span --%>
+<%-- 							class="badge bg-dark text-white ms-1 rounded-pill">0</span> --%>
+<!-- 					</button> -->
+<%-- 				</form> --%>
 			</div>
 		</div>
 	</nav>
@@ -111,25 +111,25 @@
 								<form:input path="nomeAutor" type="text" class="form-control"
 									placeholder="Nome do Autor" />
 							</div>
-							<div class="form-group input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"> 
-									<i class="fas fa-chevron-down"></i>
-									</span>
-								</div>
-								<form:select class="form-control" path="statusAutor">
-									<form:option value="" label="Selecione Status do Autor"/>
-									<form:option value="true" label="Ativo" />
-									<form:option value="false" label="Inativo" />
-								</form:select>
-							</div>
+<!-- 							<div class="form-group input-group"> -->
+<!-- 								<div class="input-group-prepend"> -->
+<%-- 									<span class="input-group-text">  --%>
+<!-- 									<i class="fas fa-chevron-down"></i> -->
+<%-- 									</span> --%>
+<!-- 								</div> -->
+<%-- 								<form:select class="form-control" path="statusAutor"> --%>
+<%-- 									<form:option value="" label="Selecione Status do Autor"/> --%>
+<%-- 									<form:option value="true" label="Ativo" /> --%>
+<%-- 									<form:option value="false" label="Inativo" /> --%>
+<%-- 								</form:select> --%>
+<!-- 							</div> -->
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary btn-block">
 									Cadastrar</button>
 							</div>
 							<!-- form-group// -->
 							<p class="text-center">
-								<a href="">Ir para listagem de Autores</a>
+								<a href="http://localhost:8080/admin/listarAutores">Ir para listagem de Autores</a>
 							</p>
 						</form:form>
 					</article>
