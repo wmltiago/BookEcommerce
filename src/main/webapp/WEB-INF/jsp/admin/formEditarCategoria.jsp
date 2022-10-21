@@ -48,7 +48,7 @@
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container px-4 px-lg-5">
-			<a class="navbar-brand" href="#!">Book Ecommerce</a>
+			<a class="navbar-brand" href="#!">Bok Ecommerce</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -100,16 +100,15 @@
 					<article class="card-body mx-auto" style="max-width: 400px;">
 						<h4 class="card-title mt-3 text-center">Cadastro de Autor</h4>
 						<br />
-						<form:form action="${s:mvcUrl('AC#cadastrarAutor').build()}"
-							method="POST" modelAttribute="autor">
+						<form:form action="${s:mvcUrl('AC#editarAutorPost').build()}" method="POST" modelAttribute="autor">
 							<div class="form-group input-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"> <i
 										class="fas fa-info-circle"></i>
 									</span>
 								</div>
-								<form:input path="nomeAutor" type="text" class="form-control"
-									placeholder="Nome do Autor" />
+								<form:input type="hidden" path="idAutor" value="${autorNovo.idAutor}"/>
+								<form:input path="nomeAutor" type="text" value="${autorNovo.nomeAutor}" class="form-control"/>
 							</div>
 <!-- 							<div class="form-group input-group"> -->
 <!-- 								<div class="input-group-prepend"> -->
@@ -124,12 +123,11 @@
 <%-- 								</form:select> --%>
 <!-- 							</div> -->
 							<div class="form-group">
-								<button type="submit" class="btn btn-primary btn-block">
-									Cadastrar</button>
+								<button type="submit" class="btn btn-primary btn-block">Atualizar</button>
 							</div>
-							<!-- form-group// -->
+							
 							<p class="text-center">
-								<a href="http://localhost:8080/admin/listarAutores">Ir para listagem de Autores</a>
+								<a href="http://localhost:8080/admin/listarAutores">Voltar para listagem de Autores</a>
 							</p>
 						</form:form>
 					</article>
@@ -144,7 +142,7 @@
 	</section>
 	</br></br></br></br></br></br>
 	</br></br></br></br></br></br></br>
-	</br></br></br></br>
+	</br>
 	<!-- Footer-->
 	<footer class="py-5 bg-dark">
 		<div class="container">
