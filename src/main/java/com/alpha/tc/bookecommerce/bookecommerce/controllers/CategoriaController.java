@@ -24,18 +24,18 @@ public class CategoriaController {
 			return modelAndView;
 		}
 		
-//		@PostMapping
-//	    public ModelAndView cadastrarCategoria(Categoria categoria) {
-//	        ModelAndView modelAndView = new ModelAndView("admin/formCadastroCategoria");
-//	        categoriaRepository.save(categoria);
-//	        return modelAndView;
-//	    }		
+		@PostMapping("admin/formCadastroCategoria")
+	    public ModelAndView cadastrarCategoria(Categoria categoria) {
+	        ModelAndView modelAndView = new ModelAndView("admin/formCadastroCategoria");
+	        categoriaRepository.save(categoria);
+	        return modelAndView;
+	    }		
 		
 		@GetMapping("admin/listarCategorias")
 		public ModelAndView listaCategorias(Categoria categoria) {
 			ModelAndView modelAndView = new ModelAndView();
 			modelAndView.setViewName("admin/listaCategorias");
-			modelAndView.addObject("listaCategoriaes", categoriaRepository.findAll());
+			modelAndView.addObject("listaCategorias", categoriaRepository.findAll());
 			return modelAndView;
 		}
 		

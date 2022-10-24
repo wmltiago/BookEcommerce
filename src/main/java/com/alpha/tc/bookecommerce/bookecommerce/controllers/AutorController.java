@@ -14,7 +14,6 @@ import com.alpha.tc.bookecommerce.bookecommerce.repository.AutorRepository;
 
 
 @Controller
-@RestController
 public class AutorController {
 	
 	@Autowired

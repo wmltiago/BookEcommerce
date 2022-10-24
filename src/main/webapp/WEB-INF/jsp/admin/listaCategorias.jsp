@@ -76,7 +76,7 @@
                     <div class="row border border-default">
 	
                         <div class="bg-primary text-center p-2 col-md-12">
-                            <p class="lead text-white">LISTAGEM DE AUTORES</p>
+                            <p class="lead text-white">LISTAGEM DE CATEGORIAS</p>
                         </div>
                     
                     
@@ -141,7 +141,7 @@
                        
                 </div>
             </br>
-                     <p class="text-center"> <a href="http://localhost:8080/admin/cadastroAutor">Ir para cadastro de Autor</a> </p> 
+                     <p class="text-center"> <a href="http://localhost:8080/admin/cadastroCategoria">Ir para cadastro de Categoria</a> </p> 
                     </div> 
                     <!--container end.//-->
                 </br></br>

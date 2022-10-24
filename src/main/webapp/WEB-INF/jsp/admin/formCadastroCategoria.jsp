@@ -100,7 +100,7 @@
 					<article class="card-body mx-auto" style="max-width: 400px;">
 						<h4 class="card-title mt-3 text-center">Cadastro de Categoria</h4>
 						<br />
-						<form:form action="${s:mvcUrl('CC#teste').build()}" method="POST" modelAttribute="categoria">
+						<form:form action="${s:mvcUrl('CC#cadastrarCategoria').build()}" method="POST" modelAttribute="categoria">
 							<div class="form-group input-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"> <i
