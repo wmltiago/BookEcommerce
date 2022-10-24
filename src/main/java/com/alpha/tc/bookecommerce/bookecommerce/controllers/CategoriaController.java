@@ -1,20 +1,13 @@
 package com.alpha.tc.bookecommerce.bookecommerce.controllers;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.alpha.tc.bookecommerce.bookecommerce.entity.Categoria;
-import com.alpha.tc.bookecommerce.bookecommerce.repository.CategoriaRepository;
 import com.alpha.tc.bookecommerce.bookecommerce.repository.CategoriaRepository;
 
 @Controller
@@ -31,12 +24,12 @@ public class CategoriaController {
 			return modelAndView;
 		}
 		
-		@PostMapping
-	    public ModelAndView cadastrarCategoria(Categoria categoria) {
-	        ModelAndView modelAndView = new ModelAndView("admin/formCadastroCategoria");
-	        categoriaRepository.save(categoria);
-	        return modelAndView;
-	    }
+//		@PostMapping
+//	    public ModelAndView cadastrarCategoria(Categoria categoria) {
+//	        ModelAndView modelAndView = new ModelAndView("admin/formCadastroCategoria");
+//	        categoriaRepository.save(categoria);
+//	        return modelAndView;
+//	    }		
 		
 		@GetMapping("admin/listarCategorias")
 		public ModelAndView listaCategorias(Categoria categoria) {
@@ -74,7 +67,7 @@ public class CategoriaController {
 
 		@PostMapping("/editarCategoria")
 		public ModelAndView editarCategoriaPost(Categoria categoria) {
-			ModelAndView modelAndView = new ModelAndView("redirect:admin/listarCategoriaes");/*aqui vc chama o uri de listar normal*/
+			ModelAndView modelAndView = new ModelAndView("redirect:admin/listarCategorias");/*aqui vc chama o uri de listar normal*/
 			Categoria categoriaNova = categoriaRepository.getById(categoria.getIdCategoria());
 			categoriaNova.setNomeCategoria(categoria.getNomeCategoria());		
 			categoriaRepository.save(categoriaNova);

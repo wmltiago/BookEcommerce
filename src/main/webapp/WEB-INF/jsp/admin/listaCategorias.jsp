@@ -92,13 +92,13 @@
                             <p>NOME AUTOR</p>
                         </div> -->
                         <div class="bg-secondary text-white p-2 mb-3 col-3 text-center d-none d-sm-block">
-                            <p>NOME AUTOR</p>
+                            <p>NOME CATEGORIA</p>
                         </div>
                         <!-- <div class="bg-secondary text-white p-2 mb-3 col-3 text-center d-block d-sm-none small">
                             <p>INS</p>
                         </div> -->
                         <div class="bg-secondary text-white p-2 mb-3 col-3 text-center d-none d-sm-block">
-                            <p>AUTOR ATIVO?</p>
+                            <p>CATEGORIA ATIVA?</p>
                         </div>
                         <!-- <div class="bg-secondary text-white p-2 mb-3 col-3 text-center d-block d-sm-none small">
                             <p>BAL</p>
@@ -110,27 +110,27 @@
                             <p>SUI</p>
                         </div> -->
                 
-                  	  <c:forEach items="${listaAutores}" var="at">
+                  	  <c:forEach items="${listaCategorias}" var="cat">
 	                        <div class="py-2 col-3 text-center d-none d-sm-block small">
-	                            <p>${at.idAutor}</p>
+	                            <p>${cat.idCategoria}</p>
 	                        </div>
 	                        <div class="py-2 col-3 text-center d-block d-sm-none small">
 	                            <p>from</p>
 	                        </div>
 	                        <div class="py-2 odd col-3 text-center">
-	                            <p>${at.nomeAutor}</p>
+	                            <p>${cat.nomeCategoria}</p>
 	                        </div>
 	                        <div class="py-2even col-3 text-center">
-	                            <p>${at.statusAutor}</p>
+	                            <p>${cat.ativoCategoria}</p>
 	                        </div>
 	                        <div class="py-2 odd col-3 text-center">
-	                        <p><a href="${s:mvcUrl('AC#editarAutor').arg(0, at.idAutor).build()}">Editar <i class="bi bi-pencil-fill"></i>
+	                        <p><a href="${s:mvcUrl('CC#editarCategoria').arg(0, cat.idCategoria).build()}">Editar <i class="bi bi-pencil-fill"></i>
 	                        </a>|
-	                        <c:if test = "${at.statusAutor == true}">
-	                         <a style='color:red' href="${s:mvcUrl('AC#inativarAutor').arg(0, at.idAutor).build()}">Inativar <i class="fas fa-toggle-off"></i></a>
+	                        <c:if test = "${cat.ativoCategoria == true}">
+	                         <a style='color:red' href="${s:mvcUrl('CC#inativarCategoria').arg(0, cat.idCategoria).build()}">Inativar <i class="fas fa-toggle-off"></i></a>
 	                        </c:if>
-	                        <c:if test = "${at.statusAutor == false}">
-	                          <a href="${s:mvcUrl('AC#ativarAutor').arg(0, at.idAutor).build()}">Ativar <i class="fas fa-toggle-on"></i></a>
+	                        <c:if test = "${cat.ativoCategoria == false}">
+	                          <a href="${s:mvcUrl('CC#ativarCategoria').arg(0, cat.idCategoria).build()}">Ativar <i class="fas fa-toggle-on"></i></a>
 	                         </c:if>
 	                          </p>
 	                        </div>

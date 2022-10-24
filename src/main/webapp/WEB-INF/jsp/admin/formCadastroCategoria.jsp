@@ -98,18 +98,17 @@
 
 				<div class="card bg-light">
 					<article class="card-body mx-auto" style="max-width: 400px;">
-						<h4 class="card-title mt-3 text-center">Cadastro de Autor</h4>
+						<h4 class="card-title mt-3 text-center">Cadastro de Categoria</h4>
 						<br />
-						<form:form action="${s:mvcUrl('AC#cadastrarAutor').build()}"
-							method="POST" modelAttribute="autor">
+						<form:form action="${s:mvcUrl('CC#teste').build()}" method="POST" modelAttribute="categoria">
 							<div class="form-group input-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"> <i
 										class="fas fa-info-circle"></i>
 									</span>
 								</div>
-								<form:input path="nomeAutor" type="text" class="form-control"
-									placeholder="Nome do Autor" />
+								<form:input path="nomeCategoria" type="text" class="form-control"
+									placeholder="Nome da Categoria" />
 							</div>
 <!-- 							<div class="form-group input-group"> -->
 <!-- 								<div class="input-group-prepend"> -->
@@ -129,7 +128,7 @@
 							</div>
 							<!-- form-group// -->
 							<p class="text-center">
-								<a href="http://localhost:8080/admin/listarAutores">Ir para listagem de Autores</a>
+								<a href="http://localhost:8080/admin/listarCategorias">Ir para listagem de Categorias</a>
 							</p>
 						</form:form>
 					</article>

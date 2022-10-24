@@ -100,15 +100,15 @@
 					<article class="card-body mx-auto" style="max-width: 400px;">
 						<h4 class="card-title mt-3 text-center">Cadastro de Autor</h4>
 						<br />
-						<form:form action="${s:mvcUrl('AC#editarAutorPost').build()}" method="POST" modelAttribute="autor">
+						<form:form action="${s:mvcUrl('CC#editarCategoriaPost').build()}" method="POST" modelAttribute="categoria">
 							<div class="form-group input-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"> <i
 										class="fas fa-info-circle"></i>
 									</span>
 								</div>
-								<form:input type="hidden" path="idAutor" value="${autorNovo.idAutor}"/>
-								<form:input path="nomeAutor" type="text" value="${autorNovo.nomeAutor}" class="form-control"/>
+								<form:input type="hidden" path="idCategoria" value="${categoriaNova.idCategoria}"/>
+								<form:input path="nomeCategoria" type="text" value="${categoriaNova.nomeCategoria}" class="form-control"/>
 							</div>
 <!-- 							<div class="form-group input-group"> -->
 <!-- 								<div class="input-group-prepend"> -->
