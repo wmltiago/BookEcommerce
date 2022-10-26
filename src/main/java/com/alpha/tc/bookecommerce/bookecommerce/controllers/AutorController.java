@@ -21,7 +21,7 @@ public class AutorController {
 	
 	@GetMapping("/")
 	public String home(Autor autor) {
-		return "admin/teste";
+		return "admin/formCadastroLivro";
 	}
 	
 		

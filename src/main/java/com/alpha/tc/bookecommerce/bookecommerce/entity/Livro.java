@@ -97,6 +97,6 @@ public class Livro {
 		this.ativo = ativo;
 	}
 	
-	
+	public Livro() {}
 
 }
