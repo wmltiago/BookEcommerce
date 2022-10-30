@@ -108,21 +108,42 @@
 										class="fas fa-info-circle"></i>
 									</span>
 								</div>
-								<form:input path="nomeLivro" type="text" class="form-control"
-									placeholder="Nome do Autor" />
+								<form:input path="tituloLivro" type="text" class="form-control"
+									placeholder="Título do Livro" />
 							</div>
-<!-- 							<div class="form-group input-group"> -->
-<!-- 								<div class="input-group-prepend"> -->
-<%-- 									<span class="input-group-text">  --%>
-<!-- 									<i class="fas fa-chevron-down"></i> -->
-<%-- 									</span> --%>
-<!-- 								</div> -->
-<%-- 								<form:select class="form-control" path="statusAutor"> --%>
-<%-- 									<form:option value="" label="Selecione Status do Autor"/> --%>
-<%-- 									<form:option value="true" label="Ativo" /> --%>
-<%-- 									<form:option value="false" label="Inativo" /> --%>
-<%-- 								</form:select> --%>
-<!-- 							</div> -->
+							<div class="form-group input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"> 
+									<i class="fas fa-chevron-down"></i>
+									</span>
+								</div>
+								<form:select class="form-control" path="editoraLivro">
+									<form:option value="" label="Selecione Status do Autor"/>
+									<form:options items="${categorias}"  itemLabel="descricao"></form:options>
+								</form:select>
+							</div>
+							<div class="form-group input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"> 
+									<i class="fas fa-chevron-down"></i>
+									</span>
+								</div>
+								<form:select class="form-control" path="autorLivro">
+									<form:option value="" label="Selecione Status do Autor"/>
+									<form:options items="${categorias}"  itemLabel="descricao"></form:options>
+								</form:select>
+							</div>
+							<div class="form-group input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"> 
+									<i class="fas fa-chevron-down"></i>
+									</span>
+								</div>
+								<form:select class="form-control" path="categoriaLivro">
+									<form:option value="" label="Selecione Status do Autor"/>
+									<form:options items="${categorias}"  itemLabel="descricao"></form:options>
+								</form:select>
+							</div>
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary btn-block">
 									Cadastrar</button>
