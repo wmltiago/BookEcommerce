@@ -113,13 +113,32 @@
 							</div>
 							<div class="form-group input-group">
 								<div class="input-group-prepend">
+									<span class="input-group-text">
+									 <i class="fas fa-dollar-sign"></i>
+									</span>
+								</div>
+								<form:input path="precoLivro" type="number" class="form-control"
+									placeholder="Valor do Livro R$" />
+							</div>
+							<div class="form-group input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+									 <i class="far fa-bookmark"></i>
+									</span>
+								</div>
+								<form:input path="numPaginas" type="number" class="form-control"
+									placeholder="Número de Páginas" />
+							</div>
+							
+							<div class="form-group input-group">
+								<div class="input-group-prepend">
 									<span class="input-group-text"> 
 									<i class="fas fa-chevron-down"></i>
 									</span>
 								</div>
 								<form:select class="form-control" path="editoraLivro">
-									<form:option value="" label="Selecione Status do Autor"/>
-									<form:options items="${categorias}"  itemLabel="descricao"></form:options>
+									<form:option value="" label="Selecione a Editora"/>
+									<form:options items="${editoras}"  itemLabel="nomeEditora"></form:options>
 								</form:select>
 							</div>
 							<div class="form-group input-group">
@@ -129,8 +148,8 @@
 									</span>
 								</div>
 								<form:select class="form-control" path="autorLivro">
-									<form:option value="" label="Selecione Status do Autor"/>
-									<form:options items="${categorias}"  itemLabel="descricao"></form:options>
+									<form:option value="" label="Selecione o Autor"/>
+									<form:options items="${autores}"  itemLabel="nomeAutor"></form:options>
 								</form:select>
 							</div>
 							<div class="form-group input-group">
@@ -140,9 +159,13 @@
 									</span>
 								</div>
 								<form:select class="form-control" path="categoriaLivro">
-									<form:option value="" label="Selecione Status do Autor"/>
-									<form:options items="${categorias}"  itemLabel="descricao"></form:options>
+									<form:option value="" label="Selecione uma Categoria"/>
+									<form:options items="${categorias}"  itemLabel="nomeCategoria"></form:options>
 								</form:select>
+							</div>
+							<div class="form-group input-group">								
+								<form:input path="fotoLivro" type="file" class="form-control"
+									placeholder="Título do Livro" />
 							</div>
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary btn-block">
@@ -150,7 +173,7 @@
 							</div>
 							<!-- form-group// -->
 							<p class="text-center">
-								<a href="http://localhost:8080/admin/listarAutores">Ir para listagem de Autores</a>
+								<a href="http://localhost:8080/admin/listarlivros">Ir para listagem de Livros</a>
 							</p>
 						</form:form>
 					</article>
@@ -164,8 +187,7 @@
 		<!-- ate aqui-->
 	</section>
 	</br></br></br></br></br></br>
-	</br></br></br></br></br></br></br>
-	</br></br></br></br>
+	</br></br></br></br></br></br></br>	
 	<!-- Footer-->
 	<footer class="py-5 bg-dark">
 		<div class="container">

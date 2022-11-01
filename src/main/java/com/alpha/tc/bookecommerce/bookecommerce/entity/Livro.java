@@ -27,6 +27,7 @@ public class Livro {
 	
 	
 	
+	
 	public Integer getIdLivro() {
 		return idLivro;
 	}
@@ -75,14 +76,14 @@ public class Livro {
 
 
 
-	public Editora getEditora() {
+	public Editora getEditoraLivro() {
 		return editoraLivro;
 	}
 
 
 
-	public void setEditora(Editora editora) {
-		this.editoraLivro = editora;
+	public void setEditoraLivro(Editora editoraLivro) {
+		this.editoraLivro = editoraLivro;
 	}
 
 
@@ -144,7 +145,9 @@ public class Livro {
 	public void setAtivoLivro(boolean ativoLivro) {
 		this.ativoLivro = ativoLivro;
 	}
-	
+
+
+
 	public Livro(Integer idLivro, String tituloLivro, Integer numPaginas, Autor autorLivro, Editora editoraLivro,
 			String fotoLivro, double precoLivro, Categoria categoriaLivro, boolean destaqueLivro, boolean ativoLivro) {
 		super();

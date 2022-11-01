@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alpha.tc.bookecommerce.bookecommerce.entity.Livro;
+import com.alpha.tc.bookecommerce.bookecommerce.repository.AutorRepository;
+import com.alpha.tc.bookecommerce.bookecommerce.repository.CategoriaRepository;
+import com.alpha.tc.bookecommerce.bookecommerce.repository.EditoraRepository;
 import com.alpha.tc.bookecommerce.bookecommerce.repository.LivroRepository;
 
 @Controller
@@ -15,12 +18,21 @@ public class LivroController  {
 
 	@Autowired
 	LivroRepository livroRepository;
+	@Autowired
+	CategoriaRepository categoriaRepository;
+	@Autowired
+	AutorRepository autorRepository;
+	@Autowired
+	EditoraRepository editoraRepository;
 	
 				
 	@GetMapping("/admin/cadastroLivro")
 	public ModelAndView cadastroLivro(Livro livro) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("admin/formCadastroLivro");
+		modelAndView.addObject("categorias", categoriaRepository.findAll());
+		modelAndView.addObject("autores", autorRepository.findAll());
+		modelAndView.addObject("editoras", editoraRepository.findAll());
 		return modelAndView;
 	}
 	
