@@ -78,6 +78,24 @@ public class LivroController  {
 		livroRepository.save(livro);
 		return modelAndView;
 	}
+	
+	@GetMapping("/naoDestaqueLivro/{id1}")
+	public ModelAndView naoDestaqueLivro(@PathVariable("id1") Integer id444) {
+		ModelAndView modelAndView = new ModelAndView("redirect:/admin/listarLivros");
+		Livro livro = livroRepository.findById(id444).get();
+		livro.setDestaqueLivro(false);
+		livroRepository.save(livro);
+		return modelAndView;
+	}
+	
+	@GetMapping("/destaqueLivro/{id1}")
+	public ModelAndView destaqueLivro(@PathVariable("id1") Integer id444) {
+		ModelAndView modelAndView = new ModelAndView("redirect:/admin/listarLivros");
+		Livro livro = livroRepository.findById(id444).get();
+		livro.setDestaqueLivro(true);
+		livroRepository.save(livro);
+		return modelAndView;
+	}
 
 	@GetMapping("/editarLivro/{id1}")
 	public ModelAndView editarLivro(@PathVariable("id1") Integer id444, Livro livro) {
@@ -87,12 +105,21 @@ public class LivroController  {
 		return modelAndView;
 	}
 
-	@PostMapping("/editarLivro")
-	public ModelAndView editarLivroPost(Livro livro) {
-		ModelAndView modelAndView = new ModelAndView("redirect:admin/listarLivros");/*aqui vc chama o uri de listar normal*/
-		Livro livroNovo = livroRepository.getById(livro.getIdLivro());
-		livroNovo.setTituloLivro(livro.getTituloLivro());		
-		livroRepository.save(livroNovo);
-		return modelAndView;
-	}
+//	@PostMapping("/editarLivro")
+//	public ModelAndView editarPessoaPost(MultipartFile imagem1, Pessoa pessoa) {
+//		ModelAndView modelAndView = new ModelAndView("redirect:/listaPessoas2");
+//		Pessoa pessoa1 = pessoaRepository.getById(pessoa.getId());
+//		pessoa1.setNome(pessoa.getNome());
+//		pessoa1.setIdade(pessoa.getIdade());
+//		
+//		if (imagem1 != null) {
+//			fileSaver.remove(pessoa1.getFoto());
+//			System.out.println(pessoa1.getFoto());
+//			String path = fileSaver.write("arquivo-foto", imagem1);
+//			pessoa1.setFoto(path);
+//		}		
+//		
+//		pessoaRepository.save(pessoa1);
+//		return modelAndView;
+//	}
 }
