@@ -2,12 +2,16 @@ package com.alpha.tc.bookecommerce.bookecommerce.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.alpha.tc.bookecommerce.bookecommerce.entity.Livro;
+import com.alpha.tc.bookecommerce.bookecommerce.infra.FileSaver;
 import com.alpha.tc.bookecommerce.bookecommerce.repository.AutorRepository;
 import com.alpha.tc.bookecommerce.bookecommerce.repository.CategoriaRepository;
 import com.alpha.tc.bookecommerce.bookecommerce.repository.EditoraRepository;
@@ -24,6 +28,8 @@ public class LivroController  {
 	AutorRepository autorRepository;
 	@Autowired
 	EditoraRepository editoraRepository;
+	@Autowired
+	FileSaver fileSaver;
 	
 				
 	@GetMapping("/admin/cadastroLivro")
@@ -34,14 +40,18 @@ public class LivroController  {
 		modelAndView.addObject("autores", autorRepository.findAll());
 		modelAndView.addObject("editoras", editoraRepository.findAll());
 		return modelAndView;
-	}
+	}	
 	
 	@PostMapping("admin/formCadastroLivro")
-    public ModelAndView cadastrarLivro(Livro livro) {
-        ModelAndView modelAndView = new ModelAndView("admin/formCadastroLivro");
-        livroRepository.save(livro);
-        return modelAndView;
-    }		
+	public String cadastrarLivro(MultipartFile imagem1,Livro livro, BindingResult result, 
+			RedirectAttributes redirectAttributes){
+		redirectAttributes.addFlashAttribute("mensagem", "Usuário cadastrado com sucesso!!");
+		String path = fileSaver.write("arquivo-foto", imagem1);
+		livro.setFotoLivro(path);		
+		livroRepository.save(livro);
+		return "redirect:/admin/cadastroLivro";
+
+	}
 	
 	@GetMapping("admin/listarLivros")
 	public ModelAndView listaLivros(Livro livro) {

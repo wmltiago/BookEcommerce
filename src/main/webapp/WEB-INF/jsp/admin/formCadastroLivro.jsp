@@ -101,7 +101,7 @@
 						<h4 class="card-title mt-3 text-center">Cadastro de Livro</h4>
 						<br />
 						<form:form action="${s:mvcUrl('LC#cadastrarLivro').build()}"
-							method="POST" modelAttribute="livro">
+							method="POST" modelAttribute="livro" enctype="multipart/form-data">
 							<div class="form-group input-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"> <i
@@ -164,8 +164,7 @@
 								</form:select>
 							</div>
 							<div class="form-group input-group">								
-								<form:input path="fotoLivro" type="file" class="form-control"
-									placeholder="Título do Livro" />
+								<input type="file" class="form-control" name="imagem1">
 							</div>
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary btn-block">
