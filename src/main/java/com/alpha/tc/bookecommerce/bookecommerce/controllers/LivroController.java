@@ -101,25 +101,30 @@ public class LivroController  {
 	public ModelAndView editarLivro(@PathVariable("id1") Integer id444, Livro livro) {
 		ModelAndView modelAndView = new ModelAndView("/admin/formEditarLivro");
 		Livro livroEditado = livroRepository.getById(id444);
-		modelAndView.addObject("livroNova", livroEditado);
+		modelAndView.addObject("livroNovo", livroEditado);
 		return modelAndView;
 	}
 
-//	@PostMapping("/editarLivro")
-//	public ModelAndView editarPessoaPost(MultipartFile imagem1, Pessoa pessoa) {
-//		ModelAndView modelAndView = new ModelAndView("redirect:/listaPessoas2");
-//		Pessoa pessoa1 = pessoaRepository.getById(pessoa.getId());
-//		pessoa1.setNome(pessoa.getNome());
-//		pessoa1.setIdade(pessoa.getIdade());
-//		
-//		if (imagem1 != null) {
-//			fileSaver.remove(pessoa1.getFoto());
-//			System.out.println(pessoa1.getFoto());
-//			String path = fileSaver.write("arquivo-foto", imagem1);
-//			pessoa1.setFoto(path);
-//		}		
-//		
-//		pessoaRepository.save(pessoa1);
-//		return modelAndView;
-//	}
+	@PostMapping("/editarLivro")
+	public ModelAndView editarlivroPost(MultipartFile imagem1, Livro livro) {
+		ModelAndView modelAndView = new ModelAndView("redirect:/admin/listarLivros");
+		Livro livro1 = livroRepository.getById(livro.getIdLivro());
+		
+		
+		if (imagem1 != null) {
+			fileSaver.remove(livro1.getFotoLivro());			
+			String path = fileSaver.write("arquivo-foto", imagem1);
+			livro1.setFotoLivro(path);
+		}
+		
+		livro1.setTituloLivro(livro.getTituloLivro());
+		livro1.setNumPaginas(livro.getNumPaginas());
+		livro1.setPrecoLivro(livro.getPrecoLivro());
+		livro1.setAutorLivro(livro.getAutorLivro());
+		livro1.setCategoriaLivro(livro.getCategoriaLivro());
+		livro1.setEditoraLivro(livro.getEditoraLivro());
+		
+		livroRepository.save(livro1);
+		return modelAndView;
+	}
 }

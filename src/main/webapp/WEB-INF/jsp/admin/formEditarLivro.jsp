@@ -48,7 +48,7 @@
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container px-4 px-lg-5">
-			<a class="navbar-brand" href="#!">Bok Ecommerce</a>
+			<a class="navbar-brand" href="#!">Book Ecommerce</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -98,36 +98,82 @@
 
 				<div class="card bg-light">
 					<article class="card-body mx-auto" style="max-width: 400px;">
-						<h4 class="card-title mt-3 text-center">Cadastro de Autor</h4>
+						<h4 class="card-title mt-3 text-center">Cadastro de Livro</h4>
 						<br />
-						<form:form action="${s:mvcUrl('AC#editarAutorPost').build()}" method="POST" modelAttribute="autor">
+						<form:form action="${s:mvcUrl('LC#cadastrarLivro').build()}"
+							method="POST" modelAttribute="livro" enctype="multipart/form-data">
 							<div class="form-group input-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"> <i
 										class="fas fa-info-circle"></i>
 									</span>
 								</div>
-								<form:input type="hidden" path="idAutor" value="${autorNovo.idAutor}"/>
-								<form:input path="nomeAutor" type="text" value="${autorNovo.nomeAutor}" class="form-control"/>
+								<form:input type="hidden" path="id" value='${livroNovo.id}'/>
+								<form:input path="tituloLivro" type="text" class="form-control"
+									placeholder="Título do Livro" value='${livroNovo.id}'/>
 							</div>
-<!-- 							<div class="form-group input-group"> -->
-<!-- 								<div class="input-group-prepend"> -->
-<%-- 									<span class="input-group-text">  --%>
-<!-- 									<i class="fas fa-chevron-down"></i> -->
-<%-- 									</span> --%>
-<!-- 								</div> -->
-<%-- 								<form:select class="form-control" path="statusAutor"> --%>
-<%-- 									<form:option value="" label="Selecione Status do Autor"/> --%>
-<%-- 									<form:option value="true" label="Ativo" /> --%>
-<%-- 									<form:option value="false" label="Inativo" /> --%>
-<%-- 								</form:select> --%>
-<!-- 							</div> -->
-							<div class="form-group">
-								<button type="submit" class="btn btn-primary btn-block">Atualizar</button>
+							<div class="form-group input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+									 <i class="fas fa-dollar-sign"></i>
+									</span>
+								</div>
+								<form:input path="precoLivro" type="number" class="form-control"
+									placeholder="Valor do Livro R$" />
+							</div>
+							<div class="form-group input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+									 <i class="far fa-bookmark"></i>
+									</span>
+								</div>
+								<form:input path="numPaginas" type="number" class="form-control"
+									placeholder="Número de Páginas" />
 							</div>
 							
+							<div class="form-group input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"> 
+									<i class="fas fa-chevron-down"></i>
+									</span>
+								</div>
+								<form:select class="form-control" path="editoraLivro">
+									<form:option value="" label="Selecione a Editora"/>
+									<form:options items="${editoras}"  itemLabel="nomeEditora"></form:options>
+								</form:select>
+							</div>
+							<div class="form-group input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"> 
+									<i class="fas fa-chevron-down"></i>
+									</span>
+								</div>
+								<form:select class="form-control" path="autorLivro">
+									<form:option value="" label="Selecione o Autor"/>
+									<form:options items="${autores}"  itemLabel="nomeAutor"></form:options>
+								</form:select>
+							</div>
+							<div class="form-group input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"> 
+									<i class="fas fa-chevron-down"></i>
+									</span>
+								</div>
+								<form:select class="form-control" path="categoriaLivro">
+									<form:option value="" label="Selecione uma Categoria"/>
+									<form:options items="${categorias}"  itemLabel="nomeCategoria"></form:options>
+								</form:select>
+							</div>
+							<div class="form-group input-group">								
+								<input type="file" class="form-control" name="imagem1">
+							</div>
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary btn-block">
+									Cadastrar</button>
+							</div>
+							<!-- form-group// -->
 							<p class="text-center">
-								<a href="http://localhost:8080/admin/listarAutores">Voltar para listagem de Autores</a>
+								<a href="/admin/listarLivros">Ir para listagem de Livros</a>
 							</p>
 						</form:form>
 					</article>
@@ -141,8 +187,7 @@
 		<!-- ate aqui-->
 	</section>
 	</br></br></br></br></br></br>
-	</br></br></br></br></br></br></br>
-	</br>
+	</br></br></br></br></br></br></br>	
 	<!-- Footer-->
 	<footer class="py-5 bg-dark">
 		<div class="container">
