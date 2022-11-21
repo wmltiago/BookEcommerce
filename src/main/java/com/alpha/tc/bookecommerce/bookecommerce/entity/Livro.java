@@ -172,6 +172,37 @@ public class Livro {
 				+ ", precoLivro=" + precoLivro + ", categoriaLivro=" + categoriaLivro + ", destaqueLivro="
 				+ destaqueLivro + ", ativoLivro=" + ativoLivro + "]";
 	}
+	
+	
+
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((idLivro == null) ? 0 : idLivro.hashCode());
+		return result;
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Livro other = (Livro) obj;
+		if (idLivro == null) {
+			if (other.idLivro != null)
+				return false;
+		} else if (!idLivro.equals(other.idLivro))
+			return false;
+		return true;
+	}
 
 
 
