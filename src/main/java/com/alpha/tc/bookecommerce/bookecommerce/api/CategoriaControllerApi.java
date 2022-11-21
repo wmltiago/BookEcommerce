@@ -3,12 +3,15 @@ package com.alpha.tc.bookecommerce.bookecommerce.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.alpha.tc.bookecommerce.bookecommerce.entity.Categoria;
 import com.alpha.tc.bookecommerce.bookecommerce.repository.CategoriaRepository;
@@ -31,4 +34,14 @@ public class CategoriaControllerApi {
         categoriaRepository.save(categoria);
         
     }	
+	
+	@PutMapping("/categoria/{idCat}")
+	@ResponseStatus(HttpStatus.OK)
+	public Categoria editarCategoriaPost(@PathVariable Integer idCat, @RequestBody Categoria categoria){
+		Categoria categoriaNova = categoriaRepository.getById(categoria.getIdCategoria());
+		categoriaNova.setNomeCategoria(categoria.getNomeCategoria());		
+		categoriaRepository.save(categoriaNova);
+		return categoria;
+		
+	}
 }

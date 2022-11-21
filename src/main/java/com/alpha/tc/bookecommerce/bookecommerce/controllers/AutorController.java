@@ -19,10 +19,10 @@ public class AutorController {
 	@Autowired
 	AutorRepository autorRepository;
 	
-	@GetMapping("/")
-	public String home(Autor autor) {
-		return "admin/formCadastroLivro";
-	}
+//	@GetMapping("/")
+//	public String home(Autor autor) {
+//		return "admin/formCadastroLivro";
+//	}
 	
 		
 	@GetMapping("/admin/cadastroAutor")
