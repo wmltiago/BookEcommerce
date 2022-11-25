@@ -29,14 +29,14 @@ public class HomeController {
 	
 	@GetMapping("/")
 	public ModelAndView index(Livro livro) {
-		ModelAndView modelAndView = new ModelAndView("index");
+		ModelAndView modelAndView = new ModelAndView("index2");
 		modelAndView.addObject("livros", livroRepository.findByDestaqueLivroTrue());
 		return modelAndView;
 	}
 	
 	@PostMapping("/buscarPorTitulo")
 	public ModelAndView buscarPorTitulo(Livro livro) {
-		ModelAndView modelAndView = new ModelAndView("index");
+		ModelAndView modelAndView = new ModelAndView("index2");
 		modelAndView.addObject("livros", livroRepository.findByTituloLivroContainingIgnoreCase(livro.getTituloLivro()));
 		return modelAndView;
 	}
