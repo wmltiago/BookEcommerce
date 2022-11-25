@@ -58,12 +58,11 @@
 
 						<div class="action-menu">
 
-							<div class="search-bar">
-								<a href="#" class="search-button search-toggle" data-selector="#header-wrap">
-									<i class="icon icon-search"></i>
-								</a>
+							<div class=""> <!--search-bar o valor que tava aqui dentro-->
+								
 								<form:form action="${s:mvcUrl('HC#buscarPorTitulo').build()}" method="POST" modelAttribute="livro" role="search" class="search-box">
 									<form:input path="tituloLivro" class="search-field text search-input" placeholder="Pesquisar" type="search"/>
+									<input class="botao" type="submit" value="filtrar">
 								</form:form>
 							</div>
 						</div>
@@ -209,6 +208,7 @@
 			<div class="product-list" data-aos="fade-up">
 				<div class="row">
 					<c:forEach items="${livros}" var="livro">
+					
 						<div class="col-md-3">
 							<figure class="product-style">
 								<img src="${livro.fotoLivro}" alt="Books" class="product-item">
