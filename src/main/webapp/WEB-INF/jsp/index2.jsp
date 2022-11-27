@@ -76,11 +76,11 @@
 
 	<header id="header">
 		<div class="container">
-			<div class="row">
+			<div class="row" style="display: flex; align-items:center;">
 
 				<div class="col-md-2">
 					<div class="main-logo">
-						<a href="index.html"><img src="/resources/css-new/images/main-logo.png" alt="logo"></a>
+						<a href="/"><img src="/resources/css-new/images/logo.png" alt="logo"></a>
 					</div>
 
 				</div>
@@ -193,54 +193,6 @@
 	</div>
 </section> -->
 
-<section id="featured-books">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-
-			<div class="section-header align-center">
-				<div class="title">
-					<span></span>
-				</div>
-				<h2 class="section-title">Destaques da Semana</h2>
-			</div>
-
-			<div class="product-list" data-aos="fade-up">
-				<div class="row">
-					<c:forEach items="${livros}" var="livro">
-					
-						<div class="col-md-3">
-							<figure class="product-style">
-								<img src="${livro.fotoLivro}" alt="Books" class="product-item">
-									<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to Cart</button>
-								<figcaption>
-									<h3>${livro.tituloLivro}</h3>
-									<p>${livro.autorLivro.nomeAutor}</p>
-									<div class="item-price">${livro.precoLivro}</div>
-								</figcaption>
-							</figure>
-						</div>	
-					</c:forEach> 
-
-			    </div><!--ft-books-slider-->				
-			</div><!--grid-->
-
-
-			</div><!--inner-content-->
-		</div>
-		
-		<div class="row">
-			<div class="col-md-12">
-
-				<div class="btn-wrap align-right">
-					<a href="#" class="btn-accent-arrow">View all products <i class="icon icon-ns-arrow-right"></i></a>
-				</div>
-				
-			</div>		
-		</div>
-	</div>
-</section>
-
 <section id="best-selling" class="leaf-pattern-overlay">
 	<div class="corner-pattern-overlay"></div>
 	<div class="container">
@@ -282,6 +234,59 @@
 	</div>
 </section>
 
+<section id="featured-books">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+			<div class="section-header align-center">
+				<div class="title">
+					<span></span>
+				</div>				
+				
+				<h2 class="section-title">Destaques da Semana</h2>
+			</div>
+			
+			
+
+			<div class="product-list" data-aos="fade-up">
+				<div class="row">
+					<c:forEach items="${livros}" var="livro">
+					
+						<div class="col-md-3">
+							<figure class="product-style">
+								<img src="${livro.fotoLivro}" alt="Books" class="product-item">
+									<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to Cart</button>
+								<figcaption>
+									<h3>${livro.tituloLivro}</h3>
+									<p>${livro.autorLivro.nomeAutor}</p>
+									<div class="item-price">${livro.precoLivro}</div>
+								</figcaption>
+							</figure>
+						</div>	
+					</c:forEach> 
+
+			    </div><!--ft-books-slider-->				
+			</div><!--grid-->
+
+
+			</div><!--inner-content-->
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="btn-wrap align-right">
+					<a href="#" class="btn-accent-arrow">View all products <i class="icon icon-ns-arrow-right"></i></a>
+				</div>
+				
+			</div>		
+		</div>
+	</div>
+</section>
+
+
+ 	
 
 <section id="featured-books">
 	<div class="container">
@@ -292,17 +297,45 @@
 				<div class="title">
 					<span></span>
 				</div>
-				<h2 class="section-title">Todos</h2>
+				<h2 class="section-title">Todos</h2>		
+				
 			</div>
 
-			<ul class="tabs">
-				<li data-tab-target="#all-genre" class="active tab">All Genre</li>
-				<li data-tab-target="#business" class="tab">Business</li>
-				<li data-tab-target="#technology" class="tab">Technology</li>
-				<li data-tab-target="#romantic" class="tab">Romantic</li>
-				<li data-tab-target="#adventure" class="tab">Adventure</li>
-				<li data-tab-target="#fictional" class="tab">Fictional</li>
-			  </ul>
+<!-- 			<ul class="tabs"> -->
+<!-- 				<li data-tab-target="#all-genre" class="active tab">Todos os Generos</li> -->
+<!-- 				<li data-tab-target="#business" class="tab">Business</li> -->
+<!-- 				<li data-tab-target="#technology" class="tab">Technology</li> -->
+<!-- 				<li data-tab-target="#romantic" class="tab">Romantic</li> -->
+<!-- 				<li data-tab-target="#adventure" class="tab">Adventure</li> -->
+<!-- 				<li data-tab-target="#fictional" class="tab">Fictional</li> -->
+<!-- 			  </ul> -->
+			  
+			 	  <div class="col-md-12">
+				<div class="bootstrap-tabs">
+					<nav>
+					  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+					    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Listagem de Autores</button>
+					    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Listagem de Editoras</button>
+					    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Listagem de Generos</button>
+					  </div>
+					</nav>
+					<div class="tab-content" id="nav-tabContent">
+					  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+					  <div ><a>AUTOR 1</a></div>
+					  <div>AUTOR 2</div>	
+					  <a href="https://www.google.com.br">info@yourcompany.com</a>				  
+					  </div>					
+					  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+					  <div><span class="item"><a href="/">EDITORA 1</a></span></div>
+					  <div>EDITORA 2</div>
+					  <div>EDITORA 3</div>
+					  </div>
+					  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">Ut enim ad minim veniam,
+					  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam,
+					  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+					</div>
+				</div>
+			</div>
 
 			<div class="product-list" data-aos="fade-up">
 				<div class="row">
@@ -324,7 +357,7 @@
 							<img src="/resources/css-new/images/product-item2.jpg" alt="Books" class="product-item">
 								<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to Cart</button>
 							<figcaption>
-								<h3>Great travel at desert</h3>
+								<h3><span class="item"><a href="/">Great travel at desert</a></span></h3>
 								<p>Sanchit Howdy</p>
 								<div class="item-price">$ 38.00</div>
 							</figcaption>
