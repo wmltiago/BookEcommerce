@@ -16,19 +16,19 @@ import com.alpha.tc.bookecommerce.bookecommerce.repository.LivroRepository;
 @RequestMapping("/api/bookstore/admin") /*torna padrão para todas uri esse trecho*/
 public class LivroControllerApi {
 	
-	@Autowired
-	LivroRepository livroRepository;
-	
-	@GetMapping("/listarLivros")
-	public List<Livro> listaLivros() {
-		List<Livro> livro = livroRepository.findAll(); 
-		return livro;
-	}
-	
-	@PostMapping("/formCadastroLivro")
-	public void cadastrarLivro(@RequestBody Livro livro) {
-        livroRepository.save(livro);
-        
-    }	
+//	@Autowired
+//	LivroRepository livroRepository;
+//	
+//	@GetMapping("/listarLivros")
+//	public List<Livro> listaLivros() {
+//		List<Livro> livro = livroRepository.findAll(); 
+//		return livro;
+//	}
+//	
+//	@PostMapping("/formCadastroLivro")
+//	public void cadastrarLivro(@RequestBody Livro livro) {
+//        livroRepository.save(livro);
+//        
+//    }	
 
 }

@@ -1,7 +1,6 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
@@ -15,14 +14,14 @@
 	    <meta name="keywords" content="">
 	    <meta name="description" content="">
 
-	    <link rel="stylesheet" type="text/css" href="/resources/css-new/css/normalize.css">
-	    <link rel="stylesheet" type="text/css" href="/resources/css-new/icomoon/icomoon.css">
-	    <link rel="stylesheet" type="text/css" href="/resources/css-new/css/vendor.css">
-	    <link rel="stylesheet" type="text/css" href="/resources/css-new/style.css">
+	    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+	    <link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
+	    <link rel="stylesheet" type="text/css" href="css/vendor.css">
+	    <link rel="stylesheet" type="text/css" href="style.css">
 
 		<!-- script
 		================================================== -->
-		<script src="/resources/css-new/js/modernizr.js"></script>
+		<script src="js/modernizr.js"></script>
 
 	</head>
 
@@ -59,12 +58,13 @@
 
 						<div class="action-menu">
 
-							<div class=""> <!--search-bar o valor que tava aqui dentro-->
-								
-								<form:form action="${s:mvcUrl('HC#buscarPorTituloArcevo').build()}" method="POST" modelAttribute="livro" role="search" class="search-box">
-									<form:input path="tituloLivro" class="search-field text search-input" placeholder="Pesquisar" type="search"/>
-									<input class="botao" type="submit" value="filtrar">
-								</form:form>
+							<div class="search-bar">
+								<a href="#" class="search-button search-toggle" data-selector="#header-wrap">
+									<i class="icon icon-search"></i>
+								</a>
+								<form role="search" method="get" class="search-box">
+									<input class="search-field text search-input" placeholder="Search" type="search">
+								</form>
 							</div>
 						</div>
 
@@ -77,11 +77,11 @@
 
 	<header id="header">
 		<div class="container">
-			<div class="row" style="display: flex; align-items:center;">
+			<div class="row">
 
 				<div class="col-md-2">
 					<div class="main-logo">
-						<a href="/"><img src="/resources/css-new/images/logo.png" alt="logo"></a>
+						<a href="index.html"><img src="images/main-logo.png" alt="logo"></a>
 					</div>
 
 				</div>
@@ -91,7 +91,7 @@
 					<nav id="navbar">
 						<div class="main-menu stellarnav">
 							<ul class="menu-list">
-								<li class="menu-item active"><a href="/" data-effect="Home">Home</a></li>
+								<li class="menu-item active"><a href="#home" data-effect="Home">Home</a></li>
 								<li class="menu-item"><a href="#about" class="nav-link" data-effect="About">About</a></li>
 								<li class="menu-item has-sub">
 									<a href="#pages" class="nav-link" data-effect="Pages">Pages</a>
@@ -131,92 +131,153 @@
 		
 </div><!--header-wrap-->
 
-<div>
+<section class="bg-sand padding-large">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">			
-				<div class="colored">
-					<h1 class="page-title">Shop</h1>
-					<div class="breadcum-items">
-						<span class="item"><a href="/">Home /</a></span>
-						<span class="item colored">Shop</span>
-					</div>					
+
+			<div class="col-md-6">
+				<a href="#" class="product-image"><img src="images/main-banner2.jpg"></a>
+			</div>
+
+			<div class="col-md-6 pl-5">
+				<div class="product-detail">
+					<h1>Birds Gonna Be Happy</h1>
+					<p>Fiction</p>
+					<span class="price colored">$45.00</span>
+
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. 
+					</p>
+					<p>
+						Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+
+					<button type="submit" name="add-to-cart" value="27545" class="button">Add to cart</button>
+					
 				</div>
 			</div>
-		</div>
-	</div>
-</div><!--site-banner-->
-
-
-<section class="padding-large">
-	<div class="container">
-
-		<div class="row">
-			<div class="col-md-12">
-
-				<div class="bootstrap-tabs">
-					<nav>
-					  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-					    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Autores</button>
-					    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Editoras</button>
-					    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Generos</button>
-					  </div>
-					</nav>
-					<div class="tab-content" id="nav-tabContent">
-						
-						<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-						<c:forEach items="${autores}" var="autor">
-							<div ><a href="${s:mvcUrl('HC#buscarPorAutor').arg(0, autor.idAutor).build()}">${autor.nomeAutor}</a></div>
-						</c:forEach>									  
-						</div>						
-						
-<!-- 						  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"> -->
-<%-- 						 	<c:forEach items="${editoras}" var="editora"> --%>
-<%-- 						 		<div ><a href="${s:mvcUrl('HC#buscarPorEditora').arg(0, editora.idEditora).build()}" >${editora.nomeEditora}</a></div> --%>
-<%-- 						 	</c:forEach> --%>
-<!-- 						  </div> -->
-						  
-						  			
-						  						  
-<!-- 						  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"> -->
-<%-- 							<c:forEach items="${categorias}" var="categoria"> --%>
-<%-- 							  <div ><a href="${s:mvcUrl('HC#buscarPorCategoria').arg(0, categoria.idCategoria).build()}" >${categoria.nomeCategoria}</a></div> --%>
-<%-- 						 	</c:forEach> --%>
-<!-- 						  </div> -->
-						  
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-		<div class="row">
-		
-			<div class="products-grid grid">
-			<c:forEach items="${listaLivros}" var="livro">
-			  	<figure class="product-style">
-					<img src="${livro.fotoLivro}" alt="Books" class="product-item">
-					<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to Cart</button>
-					<figcaption>
-						<h3>${livro.tituloLivro}</h3>
-						<p>${livro.autorLivro.nomeAutor}</p>
-						<div class="item-price"><span>R$</span>${livro.precoLivro}</div>
-					</figcaption>
-				</figure>			  	
-			</c:forEach> 
-	    	</div>
-	    	
-<%-- 	    	<c:if test="${empty listaLivros}">	    	 --%>
-<!-- 				<div class="row"> -->
-<!-- 					<div class="col-md-12">			 -->
-<!-- 						<h1 class="page-title align-center">Não Foram Encontrados Registros!</h1> -->
-<!-- 					</div> -->
-<!-- 				</div>	    	 -->
-<%-- 	    	</c:if> --%>
 
 		</div>
 	</div>
 </section>
+
+
+<footer id="footer">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-4">
+				
+				<div class="footer-item">
+					<div class="company-brand">
+						<img src="images/main-logo.png" alt="logo" class="footer-logo">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sed ptibus liberolectus nonet psryroin. Amet sed lorem posuere sit iaculis amet, ac urna. Adipiscing fames semper erat ac in suspendisse iaculis.</p>
+					</div>
+				</div>
+				
+			</div>
+
+			<div class="col-md-2">
+
+				<div class="footer-menu">
+					<h5>About Us</h5>
+					<ul class="menu-list">
+						<li class="menu-item">
+							<a href="#">vision</a>
+						</li>
+						<li class="menu-item">
+							<a href="#">articles </a>
+						</li>
+						<li class="menu-item">
+							<a href="#">careers</a>
+						</li>
+						<li class="menu-item">
+							<a href="#">service terms</a>
+						</li>
+						<li class="menu-item">
+							<a href="#">donate</a>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+			<div class="col-md-2">
+
+				<div class="footer-menu">
+					<h5>Discover</h5>
+					<ul class="menu-list">
+						<li class="menu-item">
+							<a href="#">Home</a>
+						</li>
+						<li class="menu-item">
+							<a href="#">Books</a>
+						</li>
+						<li class="menu-item">
+							<a href="#">Authors</a>
+						</li>
+						<li class="menu-item">
+							<a href="#">Subjects</a>
+						</li>
+						<li class="menu-item">
+							<a href="#">Advanced Search</a>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+			<div class="col-md-2">
+
+				<div class="footer-menu">
+					<h5>My account</h5>
+					<ul class="menu-list">
+						<li class="menu-item">
+							<a href="#">Sign In</a>
+						</li>
+						<li class="menu-item">
+							<a href="#">View Cart</a>
+						</li>
+						<li class="menu-item">
+							<a href="#">My Wishtlist</a>
+						</li>
+						<li class="menu-item">
+							<a href="#">Track My Order</a>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+			<div class="col-md-2">
+
+				<div class="footer-menu">
+					<h5>Help</h5>
+					<ul class="menu-list">
+						<li class="menu-item">
+							<a href="#">Help center</a>
+						</li>
+						<li class="menu-item">
+							<a href="#">Report a problem</a>
+						</li>
+						<li class="menu-item">
+							<a href="#">Suggesting edits</a>
+						</li>
+						<li class="menu-item">
+							<a href="#">Contact us</a>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+
+		</div>
+		<!-- / row -->
+
+	</div>
+</footer>
 
 <div id="footer-bottom">
 	<div class="container">
@@ -227,7 +288,7 @@
 					<div class="row">
 
 						<div class="col-md-6">
-							<p>© 2022 All rights reserved. Tiago Borges </p>
+							<p>© 2022 All rights reserved. Free HTML Template by <a href="https://www.templatesjungle.com/" target="_blank">TemplatesJungle</a></p>
 						</div>
 
 						<div class="col-md-6">
@@ -257,9 +318,9 @@
 	</div>
 </div>
 
-<script src="/resources/css-new/js/jquery-1.11.0.min.js"></script>
-<script src="/resources/css-new/js/plugins.js"></script>
-<script src="/resources/css-new/js/script.js"></script>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/script.js"></script>
 
 </body>
 </html>	
