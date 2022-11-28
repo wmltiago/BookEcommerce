@@ -195,7 +195,7 @@
 			<div class="products-grid grid">
 			<c:forEach items="${listaLivros}" var="livro">
 			  	<figure class="product-style">
-					<img src="${livro.fotoLivro}" alt="Books" class="product-item">
+					<img src="/${livro.fotoLivro}" alt="Books" class="product-item">
 					<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to Cart</button>
 					<figcaption>
 						<h3>${livro.tituloLivro}</h3>

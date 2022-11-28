@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alpha.tc.bookecommerce.bookecommerce.entity.Autor;
+import com.alpha.tc.bookecommerce.bookecommerce.entity.Categoria;
+import com.alpha.tc.bookecommerce.bookecommerce.entity.Editora;
 import com.alpha.tc.bookecommerce.bookecommerce.entity.Livro;
 import com.alpha.tc.bookecommerce.bookecommerce.repository.AutorRepository;
 import com.alpha.tc.bookecommerce.bookecommerce.repository.CategoriaRepository;
@@ -61,11 +63,27 @@ public class HomeController {
 		return modelAndView;
 	}
 	
-	@GetMapping("{id}")
-	public ModelAndView buscarPorAutor(@PathVariable Integer id){
+	@GetMapping("/buscarPorAuto/{id}")
+	public ModelAndView buscarPorAutor(@PathVariable Integer id, Livro livro){
 		ModelAndView modelAndView = new ModelAndView("shop");
 		Autor autor =  autorRepository.findById(id).get();
-		modelAndView.addObject("livros", livroRepository.findByAutor(autor));
+		modelAndView.addObject("listaLivros", livroRepository.findByAutorLivro(autor));
+		return modelAndView;
+	}
+	
+	@GetMapping("/buscarPorCategoria/{id}")
+	public ModelAndView buscarPorCategoria(@PathVariable Integer id, Livro livro){
+		ModelAndView modelAndView = new ModelAndView("shop");
+		Categoria categoria =  categoriaRepository.findById(id).get();
+		modelAndView.addObject("listaLivros", livroRepository.findByCategoriaLivro(categoria));
+		return modelAndView;
+	}
+	
+	@GetMapping("/buscarPorEditora/{id}")
+	public ModelAndView buscarPorEditora(@PathVariable Integer id, Livro livro){
+		ModelAndView modelAndView = new ModelAndView("shop");
+		Editora editora =  editoraRepository.findById(id).get();
+		modelAndView.addObject("listaLivros", livroRepository.findByEditoraLivro(editora));
 		return modelAndView;
 	}
 	
