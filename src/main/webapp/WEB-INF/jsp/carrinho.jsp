@@ -14,14 +14,14 @@
 	    <meta name="keywords" content="">
 	    <meta name="description" content="">
 
-	    <link rel="stylesheet" type="text/css" href="css/normalize.css">
-	    <link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
-	    <link rel="stylesheet" type="text/css" href="css/vendor.css">
-	    <link rel="stylesheet" type="text/css" href="style.css">
+	    <link rel="stylesheet" type="text/css" href="/resources/css-new/css/normalize.css">
+	    <link rel="stylesheet" type="text/css" href="/resources/css-new/icomoon/icomoon.css">
+	    <link rel="stylesheet" type="text/css" href="/resources/css-new/css/vendor.css">
+	    <link rel="stylesheet" type="text/css" href="/resources/css-new/style.css">
 
 		<!-- script
 		================================================== -->
-		<script src="js/modernizr.js"></script>
+		<script src="/resources/css-new/js/modernizr.js"></script>
 
 	</head>
 
@@ -133,36 +133,55 @@
 
 <section class="bg-sand padding-large">
 	<div class="container">
+	<c:forEach items="${livros}" var="livro">
 		<div class="row">
-
-			<div class="col-md-6">
-				<a href="#" class="product-image"><img src="images/main-banner2.jpg"></a>
+		
+			<div class="col-md-4">
+				<a href="#" class="product-image"><img src="/${livro.fotoLivro}" style="width:350; height: 350px;"></a>
 			</div>
 
-			<div class="col-md-6 pl-5">
+			<div class="col-md-4 pl-5">
 				<div class="product-detail">
-					<h1>Birds Gonna Be Happy</h1>
-					<p>Fiction</p>
-					<span class="price colored">$45.00</span>
+					<h4>${livro.tituloLivro}</h4>
+					<span>Genero: ${livro.categoriaLivro.nomeCategoria}</span>
+					<span>Autor: ${livro.autorLivro.nomeAutor}</span><br><br>
+					<p class="price colored">R$ ${livro.precoLivro}</p>
 
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 						consequat. 
-					</p>
-					<p>
-						Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</p>
-
-					<button type="submit" name="add-to-cart" value="27545" class="button">Add to cart</button>
+					</p>	
+					<a class="button"
+							href="${s:mvcUrl('CCC#excluirLivro').arg(0, livro.idLivro).build()}">Excluir item</a>				
 					
 				</div>
 			</div>
+			<div class="col-md-4">
+				<h3>${carrinhoCompras.getQuantidadeTela(livro)} Unidades</h3>
+				<h3>${carrinhoCompras.getQuantidadeTela(livro)*livro.precoLivro}</h3>	
+				
+				<form:form servletRelativeAction="/atualizar" method="POST" class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">Qtd</div>
+										</div>
 
+										<input type="hidden" name="idLivro" value="${livro.idLivro}" />
+										<input class="form-control" type="number" min ="1" name="quantidade" value="${carrinhoCompras.getQuantidadeTela(livro)}"/>
+
+<!-- 										<button type="submit" class="btn btn-success" value="atualizar">atualizar</button> -->
+										<input class="btn btn-success" value="atualizar" type="submit" />
+									</form:form>
+
+			</div>
 		</div>
+		</c:forEach>
+		<div class="col-md-4">
+			
+				<button type="submit" name="add-to-cart" value="27545" class="button">Confirmar Pagamento</button>
+
+			</div>
 	</div>
 </section>
 
@@ -318,9 +337,9 @@
 	</div>
 </div>
 
-<script src="js/jquery-1.11.0.min.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/script.js"></script>
+<script src="/resources/css-new/js/jquery-1.11.0.min.js"></script>
+<script src="/resources/css-new/js/plugins.js"></script>
+<script src="/resources/css-new/js/script.js"></script>
 
 </body>
 </html>	

@@ -56,10 +56,19 @@ public class HomeController {
 		return modelAndView;
 	}
 	
+	@GetMapping("/detalhes/{id}")
+	public ModelAndView detalhesLivro(@PathVariable Integer id,Livro livro) {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("detalhe");
+		modelAndView.addObject("livro", livroRepository.findById(id).get());
+//		modelAndView.addObject("s", "show");
+		return modelAndView;
+	}
+	
 	@PostMapping("/buscarPorTituloArcevo")
 	public ModelAndView buscarPorTituloArcevo(Livro livro) {
 		ModelAndView modelAndView = new ModelAndView("shop");
-		modelAndView.addObject("listaLivrosArcevo", livroRepository.findByTituloLivroContainingIgnoreCase(livro.getTituloLivro()));
+		modelAndView.addObject("listaLivros", livroRepository.findByTituloLivroContainingIgnoreCase(livro.getTituloLivro()));
 		return modelAndView;
 	}
 	
