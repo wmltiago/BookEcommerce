@@ -28,107 +28,7 @@
 
 <body>
 
-<div id="header-wrap">
-	
-	<div class="top-content">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<div class="social-links">
-						<ul>
-							<li>
-								<a href="#"><i class="icon icon-facebook"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="icon icon-twitter"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="icon icon-youtube-play"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="icon icon-behance-square"></i></a>
-							</li>
-						</ul>
-					</div><!--social-links-->
-				</div>
-				<div class="col-md-6">
-					<div class="right-element">
-						<a href="#" class="user-account for-buy"><i class="icon icon-user"></i><span>Account</span></a>
-						<a href="#" class="cart for-buy"><i class="icon icon-clipboard"></i><span>Cart:(0 $)</span></a>
-
-						<div class="action-menu">
-
-							<div class=""> <!--search-bar o valor que tava aqui dentro-->
-								
-								<form:form action="${s:mvcUrl('HC#buscarPorTitulo').build()}" method="POST" modelAttribute="livro" role="search" class="search-box">
-									<form:input path="tituloLivro" class="search-field text search-input" placeholder="Pesquisar" type="search"/>
-									<input class="botao" type="submit" value="filtrar">
-								</form:form>
-							</div>
-						</div>
-
-					</div><!--top-right-->
-				</div>
-				
-			</div>
-		</div>
-	</div><!--top-content-->
-
-	<header id="header">
-		<div class="container">
-			<div class="row" style="display: flex; align-items:center;">
-
-				<div class="col-md-2">
-					<div class="main-logo">
-						<a href="/"><img src="/resources/css-new/images/logo.png" alt="logo"></a>
-					</div>
-
-				</div>
-
-				<div class="col-md-10">
-					
-					<nav id="navbar">
-						<div class="main-menu stellarnav">
-							<ul class="menu-list">
-								<li class="menu-item active"><a href="#home" data-effect="Home">Home</a></li>
-								<li class="menu-item"><a href="#about" class="nav-link" data-effect="About">About</a></li>
-								<li class="menu-item has-sub">
-									<a href="#pages" class="nav-link" data-effect="Pages">Pages</a>
-
-									<ul>
-								        <li class="active"><a href="index.html">Home</a></li>
-								        <li><a href="about.html">About</a></li>
-								        <li><a href="styles.html">Styles</a></li>
-								        <li><a href="blog.html">Blog</a></li>
-								        <li><a href="single-post.html">Post Single</a></li>
-								        <li><a href="shop.html">Our Store</a></li>
-								        <li><a href="single-product.html">Product Single</a></li>
-								        <li><a href="contact.html">Contact</a></li>
-								        <li><a href="thank-you.html">Thank You</a></li>
-								     </ul>
-
-								</li>
-								<li class="menu-item"><a href="#popular-books" class="nav-link" data-effect="Shop">Shop</a></li>
-								<li class="menu-item"><a href="#latest-blog" class="nav-link" data-effect="Articles">Articles</a></li>
-								<li class="menu-item"><a href="#contact" class="nav-link" data-effect="Contact">Contact</a></li>
-							</ul>
-
-							<div class="hamburger">
-				                <span class="bar"></span>
-				                <span class="bar"></span>
-				                <span class="bar"></span>
-				            </div>
-
-						</div>
-					</nav>
-
-				</div>
-
-			</div>
-		</div>
-	</header>
-		
-</div><!--header-wrap-->
+<%@ include file="menu.jsp"%>
 
 <!-- <section id="billboard">
 
@@ -216,9 +116,9 @@
 								<div class="author-name">By Timbur Hood</div>
 								<h3 class="item-title">Birds gonna be happy</h3>
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero ipsum enim pharetra hac.</p>
-								<div class="item-price">$ 45.00</div>
+								<div class="item-price">R$ 45.00</div>
 								<div class="btn-wrap">
-									<a href="#" class="btn-accent-arrow">shop it now <i class="icon icon-ns-arrow-right"></i></a>
+									<a href="#" class="btn-accent-arrow">Compre agora<i class="icon icon-ns-arrow-right"></i></a>
 								</div>
 							</div>
 

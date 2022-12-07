@@ -34,7 +34,7 @@ public class HomeController {
 	@GetMapping("/")
 	public ModelAndView index(Livro livro) {
 		ModelAndView modelAndView = new ModelAndView("index2");
-		modelAndView.addObject("livros", livroRepository.findByDestaqueLivroTrue());		
+		modelAndView.addObject("livros", livroRepository.findByDestaqueLivroTrue());				
 		return modelAndView;
 	}
 	
@@ -52,7 +52,7 @@ public class HomeController {
 		modelAndView.addObject("listaLivros", livroRepository.findAll());
 		modelAndView.addObject("categorias", categoriaRepository.findAll());
 		modelAndView.addObject("autores", autorRepository.findAll());
-		modelAndView.addObject("editoras", editoraRepository.findAll());
+		modelAndView.addObject("editoras", editoraRepository.findAll());		
 		return modelAndView;
 	}
 	
@@ -61,7 +61,6 @@ public class HomeController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("detalhe");
 		modelAndView.addObject("livro", livroRepository.findById(id).get());
-//		modelAndView.addObject("s", "show");
 		return modelAndView;
 	}
 	
@@ -69,6 +68,9 @@ public class HomeController {
 	public ModelAndView buscarPorTituloArcevo(Livro livro) {
 		ModelAndView modelAndView = new ModelAndView("shop");
 		modelAndView.addObject("listaLivros", livroRepository.findByTituloLivroContainingIgnoreCase(livro.getTituloLivro()));
+		modelAndView.addObject("categorias", categoriaRepository.findAll());
+		modelAndView.addObject("autores", autorRepository.findAll());
+		modelAndView.addObject("editoras", editoraRepository.findAll());
 		return modelAndView;
 	}
 	

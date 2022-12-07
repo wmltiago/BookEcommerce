@@ -29,123 +29,23 @@
 <body>
 
 
-<div id="header-wrap">
-	
-	<div class="top-content">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<div class="social-links">
-						<ul>
-							<li>
-								<a href="#"><i class="icon icon-facebook"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="icon icon-twitter"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="icon icon-youtube-play"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="icon icon-behance-square"></i></a>
-							</li>
-						</ul>
-					</div><!--social-links-->
-				</div>
-				<div class="col-md-6">
-					<div class="right-element">
-						<a href="#" class="user-account for-buy"><i class="icon icon-user"></i><span>Account</span></a>
-						<a href="#" class="cart for-buy"><i class="icon icon-clipboard"></i><span>Cart:(0 $)</span></a>
+<%@ include file="menuArcevo.jsp"%>
 
-						<div class="action-menu">
-
-							<div class=""> <!--search-bar o valor que tava aqui dentro-->
-								
-								<form:form action="${s:mvcUrl('HC#buscarPorTituloArcevo').build()}" method="POST" modelAttribute="livro" role="search" class="search-box">
-									<form:input path="tituloLivro" class="search-field text search-input" placeholder="Pesquisar" type="search"/>
-									<input class="botao" type="submit" value="filtrar">
-								</form:form>
-							</div>
-						</div>
-
-					</div><!--top-right-->
-				</div>
-				
-			</div>
-		</div>
-	</div><!--top-content-->
-
-	<header id="header">
-		<div class="container">
-			<div class="row" style="display: flex; align-items:center;">
-
-				<div class="col-md-2">
-					<div class="main-logo">
-						<a href="/"><img src="/resources/css-new/images/logo.png" alt="logo"></a>
-					</div>
-
-				</div>
-
-				<div class="col-md-10">
-					
-					<nav id="navbar">
-						<div class="main-menu stellarnav">
-							<ul class="menu-list">
-								<li class="menu-item active"><a href="/" data-effect="Home">Home</a></li>
-								<li class="menu-item"><a href="#about" class="nav-link" data-effect="About">About</a></li>
-								<li class="menu-item has-sub">
-									<a href="#pages" class="nav-link" data-effect="Pages">Pages</a>
-
-									<ul>
-								        <li class="active"><a href="index.html">Home</a></li>
-								        <li><a href="about.html">About</a></li>
-								        <li><a href="styles.html">Styles</a></li>
-								        <li><a href="blog.html">Blog</a></li>
-								        <li><a href="single-post.html">Post Single</a></li>
-								        <li><a href="shop.html">Our Store</a></li>
-								        <li><a href="single-product.html">Product Single</a></li>
-								        <li><a href="contact.html">Contact</a></li>
-								        <li><a href="thank-you.html">Thank You</a></li>
-								     </ul>
-
-								</li>
-								<li class="menu-item"><a href="#popular-books" class="nav-link" data-effect="Shop">Shop</a></li>
-								<li class="menu-item"><a href="#latest-blog" class="nav-link" data-effect="Articles">Articles</a></li>
-								<li class="menu-item"><a href="#contact" class="nav-link" data-effect="Contact">Contact</a></li>
-							</ul>
-
-							<div class="hamburger">
-				                <span class="bar"></span>
-				                <span class="bar"></span>
-				                <span class="bar"></span>
-				            </div>
-
-						</div>
-					</nav>
-
-				</div>
-
-			</div>
-		</div>
-	</header>
-		
-</div><!--header-wrap-->
-
-<div>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">			
-				<div class="colored">
-					<h1 class="page-title">Shop</h1>
-					<div class="breadcum-items">
-						<span class="item"><a href="/">Home /</a></span>
-						<span class="item colored">Shop</span>
-					</div>					
-				</div>
-			</div>
-		</div>
-	</div>
-</div><!--site-banner-->
+<!-- <div> -->
+<!-- 	<div class="container"> -->
+<!-- 		<div class="row"> -->
+<!-- 			<div class="col-md-12">			 -->
+<!-- 				<div class="colored"> -->
+<!-- 					<h1 class="page-title">Shop</h1> -->
+<!-- 					<div class="breadcum-items"> -->
+<%-- 						<span class="item"><a href="/">Home /</a></span> --%>
+<%-- 						<span class="item colored">Shop</span> --%>
+<!-- 					</div>					 -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- </div> -->
 
 
 <section class="padding-large">
@@ -198,9 +98,9 @@
 					<a href="${s:mvcUrl('HC#detalhesLivro').arg(0, livro.idLivro).build()}">
 					<img src="/${livro.fotoLivro}" alt="Books" class="product-item">
 					</a>
-					<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to Cart</button>
+					<a class="button" href="${s:mvcUrl('CCC#adicionaLivro').arg(0, livro.idLivro).build()}"><button type="button" class="add-to-cart" data-product-tile="add-to-cart">Adicionar ao carrinho</button></a>
 					<figcaption>
-						<h3>${livro.tituloLivro}</h3>
+						<a href="${s:mvcUrl('HC#detalhesLivro').arg(0, livro.idLivro).build()}" style="text-decoration:none;"><h3 style="color:#74642F;">${livro.tituloLivro}</h3></a>
 						<p>${livro.autorLivro.nomeAutor}</p>
 						<div class="item-price"><span>R$</span>${livro.precoLivro}</div>
 					</figcaption>
