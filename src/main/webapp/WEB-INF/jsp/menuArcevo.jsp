@@ -28,7 +28,7 @@
 				<div class="col-md-6">
 					<div class="right-element">
 						<a href="#" class="user-account for-buy"><i class="icon icon-user"></i><span>Account</span></a>
-						<a href="/carrinho" class="cart for-buy"><i class="icon icon-clipboard"></i><span>Carrinho:(0 $)</span></a>
+						<a href="/carrinho" class="cart for-buy"><i class="icon icon-clipboard"></i><span>Carrinho:(R$ ${totalCarrinho})</span></a>
 
 						<div class="action-menu">
 

@@ -30,6 +30,21 @@ public class CarrinhoComprasController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("carrinho");
 		modelAndView.addObject("livros", carrinhoCompras.getItens());
+		modelAndView.addObject("totalCarrinho", carrinhoCompras.totalCarrinho());
+		return modelAndView;
+	}
+	
+	@GetMapping("/pagamento")
+	public ModelAndView pagamento(Livro livro) {
+		ModelAndView modelAndView = new ModelAndView("pagamento2");	
+		modelAndView.addObject("totalCarrinho", carrinhoCompras.totalCarrinho());
+		return modelAndView;
+	}
+	
+	@GetMapping("/confirmacaoPg")
+	public ModelAndView confirmacaoPg(Livro livro) {
+		ModelAndView modelAndView = new ModelAndView("confirmacaoPg");		
+		carrinhoCompras.clear();
 		return modelAndView;
 	}
 	
@@ -39,12 +54,13 @@ public class CarrinhoComprasController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("carrinho");
 		Optional<Livro> livro = LivroRepository.findById(id);
-		
+				
 		if(livro.isPresent()) {
 			carrinhoCompras.adicionaLivroCarrinho(livro.get());
 		}		
 		
 		modelAndView.addObject("livros", carrinhoCompras.getItens());
+		modelAndView.addObject("totalCarrinho", carrinhoCompras.totalCarrinho());
 		return modelAndView;
 	}
 	
@@ -58,6 +74,7 @@ public class CarrinhoComprasController {
 			carrinhoCompras.remove(livro.get());
 		}		
 		modelAndView.addObject("livros", carrinhoCompras.getItens());
+		modelAndView.addObject("totalCarrinho", carrinhoCompras.totalCarrinho());
 		return modelAndView;
 	}
 	
@@ -68,7 +85,10 @@ public class CarrinhoComprasController {
 		Livro l = LivroRepository.getById(idLivro);
 		carrinhoCompras.atualizaQtd(l, quantidade);		
 		modelAndView.addObject("livros", carrinhoCompras.getItens());
+		modelAndView.addObject("totalCarrinho", carrinhoCompras.totalCarrinho());
 		return modelAndView;
 	}
+	
+	
 
 }

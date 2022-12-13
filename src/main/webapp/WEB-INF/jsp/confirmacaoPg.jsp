@@ -27,72 +27,52 @@
 		================================================== -->
 <script src="/resources/css-new/js/modernizr.js"></script>
 
+<link rel="stylesheet" type="text/css"
+	href="/resources/css/pagamento/pagamento.css">
+
+<!-- script
+		================================================== -->
+<script src="/resources/css/pagamento/pagamento_f.js"></script>
+
 </head>
 
 <body>
+
 
 	<%@ include file="menu.jsp"%>
 
 	<section class="bg-sand padding-large">
 		<div class="container">
-			<c:forEach items="${livros}" var="livro">
-				<div class="row">
+			<div class="row">
 
-					<div class="col-md-4">
-						<a href="#" class="product-image"><img
-							src="/${livro.fotoLivro}" style="width: 350; height: 350px;"></a>
-					</div>
+				<div class="col-md-12">
+					<div class="checkout-panel">
+						<div class="panel-body">
+							<h2 class="title">Tudo certo com o pagamento!</h2>
 
-					<div class="col-md-4 pl-5">
-					
-						<div class="product-detail">
-							<h4>${livro.tituloLivro}</h4>
-							<span>Genero: ${livro.categoriaLivro.nomeCategoria}</span> <span>Autor:
-								${livro.autorLivro.nomeAutor}</span><br>
+							<div class="progress-bar">
+								<div class="step active"></div>
+								<div class="step active"></div>
+								<div class="step active"></div>
+								<div class="step"></div>
+
+							</div>
 							<br>
-							<p class="price colored">R$ ${livro.precoLivro}</p>
-
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore magna
-								aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-								ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							<a class="button"
-								href="${s:mvcUrl('CCC#excluirLivro').arg(0, livro.idLivro).build()}">Excluir tem</a>
-
-						</div>
-					</div>
-					<div class="col-md-4">
-						<h3>${carrinhoCompras.getQuantidadeTela(livro)}Unidades</h3>
-						<div class="item-price">R$
-							${carrinhoCompras.getQuantidadeTela(livro)*livro.precoLivro}</div>
-
-						<form:form servletRelativeAction="/atualizar" method="POST"
-							class="input-group">
-							<div class="input-group-prepend">
-								<div class="input-group-text">Qtd</div>
+							<div class="text-center">
+								<h1>Nº DO PEDIDO É 20221212</h1>
 							</div>
 
-							<input type="hidden" name="idLivro" value="${livro.idLivro}" />
-							<input class="form-control" type="number" min="1"
-								name="quantidade"
-								value="${carrinhoCompras.getQuantidadeTela(livro)}" />
+							<br>
+							<div class="text-center">
+								<a href="/"><button class="btn next-btn">Inicio</button></a>
 
-							<!-- 										<button type="submit" class="btn btn-success" value="atualizar">atualizar</button> -->
-							<input class="btn btn-success" value="atualizar" type="submit" />
-						</form:form>
-
+							</div>
+						</div>
 					</div>
-				</div>
-				<hr>
-			</c:forEach>
-			
-			<div class="col-md-12 ">
 
-				<a href="/pagamento"><button type="submit" name="add-to-cart" value="27545" class="button">Confirmar Pagamento</button></a>
-				<span>TOTAL: ${totalCarrinho}</span>
+				</div>
 
 			</div>
-			
 		</div>
 	</section>
 

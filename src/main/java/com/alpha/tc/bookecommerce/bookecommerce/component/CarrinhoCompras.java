@@ -49,6 +49,17 @@ public class CarrinhoCompras {
 		
 	}
 	
+	public Double totalCarrinho() {
+		double total = 0;
+		for (Livro item : livros.keySet()) {			
+			total += item.getPrecoLivro() * getQuantidadeTela(item);			
+		}
+		return total;
+	}
+	
 		
+	public void clear() {
+		livros.clear();
+	}
 	
 }
